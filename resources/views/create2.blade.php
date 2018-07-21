@@ -5,6 +5,11 @@
  * Date: 20/07/2018
  * Time: 11:38
  */?>
+@extends('layouts.app') <!-- Fonts -->
+
+<!-- Styles -->
+
+
 <html>
 <head>
     <style>
@@ -28,7 +33,7 @@
             margin-right: auto;
         }
         .barra {
-            background-color: black;
+            background-color: brown;
             position: fixed;
             top: 0;
             left: 0;
@@ -36,7 +41,7 @@
             height: 60px;
         }
     </style>
-    <title>CadAlunos</title>
+    <title>Cadastro de Aluno</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <!-- Adicionando JQuery -->
@@ -109,14 +114,40 @@
         });
 
     </script>
-    <div class="barra"></br></div>
+    <div class="barra">
+        <table>
+            <tr>
+                <td><form align = "left" action="{{url('/inicio') }}" method="get">
+                        {{ csrf_field()}}
+                        <input type="hidden" name="_method" Value="Home">
+                        <input type="submit" value="Home" class="btn btn-danger"></form></td><td></td><td></td><td></td><td></td>
+                <td><form align = "left" action="{{url('/create2_aluno') }}" method="get">
+                        {{ csrf_field()}}
+                        <input type="hidden" name="_method" Value="Novo Aluno">
+                        <input type="submit" value="Novo Aluno" class="btn btn-danger"></form></td>
+                <td><form align = "left" action="{{url('/create_professor') }}" method="get">
+                        {{ csrf_field()}}
+                        <input type="hidden" name="_method" Value="Novo Professor">
+                        <input type="submit" value="Novo Professor" class="btn btn-danger"></form></td>
+                <td><form align = "left" action="{{url('/create3_curso') }}" method="get">
+                        {{ csrf_field()}}
+                        <input type="hidden" name="_method" Value="Novo Curso">
+                        <input type="submit" value="Novo Curso" class="btn btn-danger"></form></td>
+                <a align = "right" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">SAIR</a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </tr>
+
+        </table>
+    </div>
     <meta http-equiv="Content-Type" content="text/html;
 
 charset=iso-8859-1" />
-    <title>Criando Alunos</title>
-    <link href="estilo_form.css" rel="stylesheet"
-
-          type="text/css" />
+    <title>Novo Aluno</title>
 
 </head>
 @if(session('success'))
@@ -124,6 +155,7 @@ charset=iso-8859-1" />
         {{session('success')}}
     </p>
 @endif
+</br></br></br>
 <!-- Inicio do formulario -->
 
 
@@ -135,55 +167,55 @@ charset=iso-8859-1" />
     <form method="post" action="{{url('/create_aluno')}}">
         {{csrf_field()}}
         <fieldset>
-            <legend>Preencha os dados abaixo:</legend>
+            <legend>Preencha com os Dados do Aluno:</legend>
 
             <div class="linha">
                 <div class="form-group">
                     <label for="nome">Nome: </br>
-                        <input name="nome" type="text" id="nome" placeholder="Digite o nome" size="40"/></label><br />
+                        <input name="nome" type="text" id="nome" placeholder="Digite o nome" size="40"/></label>
                 </div>
                 </label>
             </div>
 
             <div class="linha2">
                 <label for="datan">Nascimento: <br/>
-                    <input name="datan" type="text" id="datan" placeholder="dd/mm/aaaa" size="40"/></label><br />
+                    <input name="datan" type="text" id="datan" placeholder="dd/mm/aaaa" size="40"/></label>
                 </label>
             </div>
 
             <div class="linha3">
                 <label for="cep">CEP: <br/>
-                    <input name="cep" type="text" id="cep" value="" placeholder="" size="40"/></label><br />
+                    <input name="cep" type="text" id="cep" value="" placeholder="" size="40"/></label>
                 </label>
             </div>
 
             <div class="linha4">
                 <label for="rua">Logradouro: <br/>
-                    <input name="rua" type="text" id="rua" value="" placeholder="Digite a Rua" size="40"/></label><br />
+                    <input name="rua" type="text" id="rua" value="" placeholder="Nome da Rua" size="40"/></label>
                 </label>
             </div>
 
             <div class="linha5">
                 <label for="bairro">Bairro: <br/>
-                    <input name="bairro" type="text" id="bairro" value="" placeholder="Digite o Bairro" size="40"/></label><br />
+                    <input name="bairro" type="text" id="bairro" value="" placeholder="Nome do Bairro" size="40"/></label>
                 </label>
             </div>
 
             <div class="linha6">
                 <label for="cidade">Cidade: <br/>
-                    <input name="cidade" type="text" id="cidade" value="" placeholder="Digite a Cidade" size="40"/></label><br />
+                    <input name="cidade" type="text" id="cidade" value="" placeholder="Nome da Cidade" size="40"/></label>
                 </label>
             </div>
 
             <div class="linha7">
                 <label for="uf">Estado: <br/>
-                    <input name="uf" type="text" id="uf" value="" placeholder="Digite o Estado" size="40"/></label><br />
+                    <input name="uf" type="text" id="uf" value="" placeholder="Nome do Estado" size="40"/></label>
                 </label>
             </div>
 
             <div class="linha8">
                 <label for="numero">Número: <br/>
-                    <input name="numero" type="text" id="número" value="" placeholder="Digite o número" size="40"/></label><br />
+                    <input name="numero" type="text" id="número" value="" placeholder="Número da casa" size="40"/></label>
                 </label>
             </div>
 
@@ -192,7 +224,6 @@ charset=iso-8859-1" />
                     <input type="text" name= "datac" placeholder="dd/mm/aaaa" size="40">
                 </label>
             </div>
-            </br></br>
             <div class="linha2">
                 <label><input name="Cadastrar" type="submit" id="Cadastrar" value="Cadastrar" />
                 </label>
@@ -203,49 +234,7 @@ charset=iso-8859-1" />
 </body>
 
 </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
-</br></br></br></br></br></br></br>
-
-<table class="table" border = "1">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Data de Nascimento</th>
-        <th>Logradouro</th>
-        <th>Número</th>
-        <th>Bairro</th>
-        <th>Cidade</th>
-        <th>Estado</th>
-        <th>Data de Criação</th>
-        <th>CEP</th>
-        <th colspan="4">Ações</th>
-    </tr>
-    </thead>
-    <tbody>
-    @foreach($alunos as $aluno)
-        <tr>
-            <td>{{$aluno->ID_ALUNO}}</td>
-            <td>{{$aluno->nome}}</td>
-            <td><?=date('d/m/Y', strtotime($aluno->datan))?></td>
-            <td>{{$aluno->rua}}</td>
-            <td>{{$aluno->numero}}</td>
-            <td>{{$aluno->bairro}}</td>
-            <td>{{$aluno->cidade}}</td>
-            <td>{{$aluno->uf}}</td>
-            <td><?=date('d/m/Y', strtotime($aluno->datac))?></td>
-            <td>{{$aluno->cep}}</td>
-            <td>
-                <form action="{{url('/delete_aluno', $aluno->ID_ALUNO)}}" method="post">
-                    {{ csrf_field()}}
-                    <input type="hidden" name="_method" Value="delete">
-                    <input type="submit" value="delete" class="btn btn-danger">
-            </td>
-            <td><a href="{{url('/edit_aluno', $aluno->ID_ALUNO)}}" class="btn btn-success">Editar</a></td>
-            <td><a href="{{url('/pdfa', $aluno->ID_ALUNO)}}" class="btn btn-success">Gerar PDF</a></td>
-        </tr>
-    @endforeach
-    </tbody>
-</table>
+</br></br></br>
 
 
 </html>

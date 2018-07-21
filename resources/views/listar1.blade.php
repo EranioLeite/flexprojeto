@@ -12,7 +12,7 @@
         margin-right: auto;
     }
     .barra {
-        background-color: black;
+        background-color: brown;
         position: fixed;
         top: 0;
         left: 0;
@@ -21,26 +21,41 @@
     }
 </style>
 
-<div class="barra"></br>
-
+<div class="barra">
     <table>
         <tr>
             <td><form align = "left" action="{{url('/inicio') }}" method="get">
                     {{ csrf_field()}}
-                    <input type="hidden" name="_method" Value="Menu">
-                    <input type="submit" value="Menu" class="btn btn-danger"></form></td><td></td><td></td><td></td><td></td>
+                    <input type="hidden" name="_method" Value="Home">
+                    <input type="submit" value="Home" class="btn btn-danger"></form></td><td></td><td></td><td></td><td></td>
             <td><form align = "left" action="{{url('/create2_aluno') }}" method="get">
                     {{ csrf_field()}}
-                    <input type="hidden" name="_method" Value="Adicionar Aluno">
-                    <input type="submit" value="Adicionar Aluno" class="btn btn-danger"></form></td>
+                    <input type="hidden" name="_method" Value="Novo Aluno">
+                    <input type="submit" value="Novo Aluno" class="btn btn-danger"></form></td>
+            <td><form align = "left" action="{{url('/create_professor') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Novo Professor">
+                    <input type="submit" value="Novo Professor" class="btn btn-danger"></form></td>
+            <td><form align = "left" action="{{url('/create3_curso') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Novo Curso">
+                    <input type="submit" value="Novo Curso" class="btn btn-danger"></form></td>
+            <a align = "right" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">SAIR</a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
         </tr>
 
     </table>
 
-
     </br><h1 align="Center" >Alunos</h1>
+
 </div></br></br></br>
 </br></br></br></br></br></br>
+
 <table class="table" border="1">
     <thead>
     <tr>

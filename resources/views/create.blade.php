@@ -6,6 +6,7 @@
  * Time: 11:13
  */
 ?>
+@extends('layouts.app')
 <style>
     body.center-form {
         min-height: 100vh;
@@ -28,7 +29,7 @@
         margin-right: auto;
     }
     .barra {
-        background-color: black;
+        background-color: brown;
         position: fixed;
         top: 0;
         left: 0;
@@ -36,14 +37,41 @@
         height: 60px;
     }
 </style>
-<div class="barra"></br></div>
+<div class="barra">
+    <table>
+        <tr>
+            <td><form align = "left" action="{{url('/inicio') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Home">
+                    <input type="submit" value="Home" class="btn btn-danger"></form></td><td></td><td></td><td></td><td></td>
+            <td><form align = "left" action="{{url('/create2_aluno') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Novo Aluno">
+                    <input type="submit" value="Novo Aluno" class="btn btn-danger"></form></td>
+            <td><form align = "left" action="{{url('/create_professor') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Novo Professor">
+                    <input type="submit" value="Novo Professor" class="btn btn-danger"></form></td>
+            <td><form align = "left" action="{{url('/create3_curso') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Novo Curso">
+                    <input type="submit" value="Novo Curso" class="btn btn-danger"></form></td>
+            <a align = "right" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">SAIR</a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+        </tr>
+
+    </table>
+</div>
 <meta http-equiv="Content-Type" content="text/html;
 
 charset=iso-8859-1" />
-<title>CadProfs</title>
-<link href="estilo_form.css" rel="stylesheet"
+<title>Novo Professor</title>
 
-      type="text/css" />
 </head>
 
 <div class="container">
@@ -52,7 +80,7 @@ charset=iso-8859-1" />
             {{session('sucess')}}
         </p>
         @endif
-        </br></br></br>
+        </br></br>
 
 
         <body class="center-form">
@@ -61,12 +89,12 @@ charset=iso-8859-1" />
             <form method="post" action="{{url('/create_professor')}}">
                 {{csrf_field()}}
                 <fieldset>
-                    <legend>Preencha os dados abaixo:</legend>
+                    <legend>Preencha com os Dados do Professor:</legend>
 
                     <div class="linha">
                         <div class="form-group">
                             <label for="NOME"> Nome:</br>
-                                <input type="text" name= "NOME" id="NOME" placeholder="Digite o nome" size="40">
+                                <input type="text" name= "NOME" id="NOME" placeholder="Nome do professor" size="40">
                         </div>
                         </label>
                     </div>
@@ -82,7 +110,7 @@ charset=iso-8859-1" />
                             <input type="text" name= "DATA_C" id="DATA_C" placeholder="dd/mm/aaaa" size="40">
                         </label>
                     </div>
-                    </br></br>
+                    </br>
                     <div class="linha2">
                         <label><input name="Cadastrar" type="submit" id="Cadastrar" value="Cadastrar" />
                         </label>
@@ -91,38 +119,9 @@ charset=iso-8859-1" />
                 </fieldset>
             </form>
         </body>
-
         </br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+        </br></br></br>
 
 
-        <table class="table" border = "1">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Data de Criação</th>
-                <th>Data de Nascimento</th>
-                <th colspan="4">Ações</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($professores as $professor)
-                <tr>
-                    <td>{{$professor->ID_PROFESSOR}}</td>
-                    <td>{{$professor->NOME}}</td>
-                    <td><?=date('d/m/Y', strtotime($professor->DATA_C))?></td>
-                    <td><?=date('d/m/Y', strtotime($professor->DATA_N))?></td>
-                    <td>
-                        <form action="{{url('/delete_professor', $professor->ID_PROFESSOR)}}" method="post">
-                            {{ csrf_field()}}
-                            <input type="hidden" name="_method" Value="delete">
-                            <input type="submit" value="delete" class="btn btn-danger">
-                    </td>
-                    <td><a href="{{url('/edit_professor', $professor->ID_PROFESSOR)}}" class="btn btn-success">Editar</a></td>
-                    <td><a href="{{url('/pdf', $professor->ID_PROFESSOR)}}" class="btn btn-success">Gerar PDF</a></td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-        </body>
+
 </div>
