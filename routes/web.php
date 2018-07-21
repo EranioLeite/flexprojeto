@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('login');
 });
+
 Route::get('/inicio', 'ProfessorController@index');
 Route::get('/create_professor', 'ProfessorController@create');
 Route::post('/create_professor', 'ProfessorController@store');
@@ -40,6 +41,9 @@ Route::get('/edita_aluno/{ID_ALUNO}', 'AlunoController@edit');
 Route::post('/edita_aluno/{ID_ALUNO}', 'AlunoController@update');
 Route::delete('/delete_aluno/{ID_ALUNO}', 'AlunoController@destroy');
 Route::get('/pdfa/{ID_ALUNO}', 'PdfController@indexa');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
