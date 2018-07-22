@@ -116,6 +116,7 @@
     </script>
     <div class="barra">
         <table>
+            <br>
             <tr>
                 <td><form align = "left" action="{{url('/inicio') }}" method="get">
                         {{ csrf_field()}}
@@ -133,9 +134,11 @@
                         {{ csrf_field()}}
                         <input type="hidden" name="_method" Value="Novo Curso">
                         <input type="submit" value="Novo Curso" class="btn btn-danger"></form></td>
-                <a align = "right" href="{{ route('logout') }}"
-                   onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();">SAIR</a>
+                <td><form align = "right" href="{{ route('logout') }}"
+                          onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">
+                        <input type="hidden" name="_method" Value="sair">
+                        <input type="submit" value="sair" class="btn btn-danger"></form></td>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
@@ -164,7 +167,7 @@ charset=iso-8859-1" />
 <div class="center-form">
 
 
-    <form method="post" action="{{url('/create_aluno')}}">
+    <form method="post" action="{{url('/create2_aluno')}}">
         {{csrf_field()}}
         <fieldset>
             <legend>Preencha com os Dados do Aluno:</legend>

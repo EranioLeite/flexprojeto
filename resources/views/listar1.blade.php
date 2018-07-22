@@ -23,6 +23,7 @@
 
 <div class="barra">
     <table>
+        <br>
         <tr>
             <td><form align = "left" action="{{url('/inicio') }}" method="get">
                     {{ csrf_field()}}
@@ -40,9 +41,11 @@
                     {{ csrf_field()}}
                     <input type="hidden" name="_method" Value="Novo Curso">
                     <input type="submit" value="Novo Curso" class="btn btn-danger"></form></td>
-            <a align = "right" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();">SAIR</a>
+            <td><form align = "right" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">
+                    <input type="hidden" name="_method" Value="sair">
+                    <input type="submit" value="sair" class="btn btn-danger"></form></td>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
@@ -92,7 +95,7 @@
                     <input type="submit" value="Deletar" class="btn btn-danger"></form>
             </td>
             <td><a href="{{url('/edita_aluno', $aluno->ID_ALUNO)}}" class="btn btn-success">Editar</a></td>
-            <td><a href="{{url('/pdfa', $aluno->ID_ALUNO)}}" class="btn btn-success">Gerar PDF</a></td>
+            <td><a href="{{url('/PdfAluno', $aluno->ID_ALUNO)}}" class="btn btn-success">Gerar PDF</a></td>
             </td></tr>
     @endforeach
     </tbody>

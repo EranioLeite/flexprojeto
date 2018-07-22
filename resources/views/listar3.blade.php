@@ -22,32 +22,35 @@
 </style>
 
 <div class="barra">
-<table>
-    <tr>
-        <td><form align = "left" action="{{url('/inicio') }}" method="get">
-                {{ csrf_field()}}
-                <input type="hidden" name="_method" Value="Home">
-                <input type="submit" value="Home" class="btn btn-danger"></form></td><td></td><td></td><td></td><td></td>
-        <td><form align = "left" action="{{url('/create2_aluno') }}" method="get">
-                {{ csrf_field()}}
-                <input type="hidden" name="_method" Value="Novo Aluno">
-                <input type="submit" value="Novo Aluno" class="btn btn-danger"></form></td>
-        <td><form align = "left" action="{{url('/create_professor') }}" method="get">
-                {{ csrf_field()}}
-                <input type="hidden" name="_method" Value="Novo Professor">
-                <input type="submit" value="Novo Professor" class="btn btn-danger"></form></td>
-        <td><form align = "left" action="{{url('/create3_curso') }}" method="get">
-                {{ csrf_field()}}
-                <input type="hidden" name="_method" Value="Novo Curso">
-                <input type="submit" value="Novo Curso" class="btn btn-danger"></form></td>
-        <a align = "right" href="{{ route('logout') }}"
-           onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();">SAIR</a>
+    <table>
+        <br>
+        <tr>
+            <td><form align = "left" action="{{url('/inicio') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Home">
+                    <input type="submit" value="Home" class="btn btn-danger"></form></td><td></td><td></td><td></td><td></td>
+            <td><form align = "left" action="{{url('/create2_aluno') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Novo Aluno">
+                    <input type="submit" value="Novo Aluno" class="btn btn-danger"></form></td>
+            <td><form align = "left" action="{{url('/create_professor') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Novo Professor">
+                    <input type="submit" value="Novo Professor" class="btn btn-danger"></form></td>
+            <td><form align = "left" action="{{url('/create3_curso') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Novo Curso">
+                    <input type="submit" value="Novo Curso" class="btn btn-danger"></form></td>
+            <td><form align = "right" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">
+                    <input type="hidden" name="_method" Value="sair">
+                    <input type="submit" value="sair" class="btn btn-danger"></form></td>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            {{ csrf_field() }}
-        </form>
-    </tr>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                {{ csrf_field() }}
+            </form>
+        </tr>
 
     </table>
 
@@ -77,8 +80,8 @@
                     <input type="hidden" name="_method" Value="delete">
                     <input type="submit" value="delete" class="btn btn-danger"></form>
             </td>
-            <td><a href="{{url('/edit_curso', $curso->ID_CURSO)}}" class="btn btn-success">Editar</a></td>
-            <td><a href="{{url('/pdfc', $curso->ID_CURSO)}}" class="btn btn-success">Gerar PDF</a></td>
+            <td><a href="{{url('/edita2_curso', $curso->ID_CURSO)}}" class="btn btn-success">Editar</a></td>
+            <td><a href="{{url('/PdfCurso', $curso->ID_CURSO)}}" class="btn btn-success">Gerar PDF</a></td>
 
             </td></tr>
     @endforeach

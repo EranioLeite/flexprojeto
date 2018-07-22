@@ -25,6 +25,7 @@
 @extends('layouts.app')
 <div class="barra">
     <table>
+       <br>
         <tr>
             <td><form align = "left" action="{{url('/create2_aluno') }}" method="get">
                     {{ csrf_field()}}
@@ -38,9 +39,11 @@
                     {{ csrf_field()}}
                     <input type="hidden" name="_method" Value="Novo Curso">
                     <input type="submit" value="Novo Curso" class="btn btn-danger"></form></td>
-            <a align = "right" href="{{ route('logout') }}"
+            <td><form align = "right" href="{{ route('logout') }}"
                onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();">SAIR</a>
+             document.getElementById('logout-form').submit();">
+                    <input type="hidden" name="_method" Value="sair">
+                    <input type="submit" value="sair" class="btn btn-danger"></form></td>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
@@ -59,6 +62,7 @@
                 <html>
                 <head>
                     <title>Portal Escola</title>
+
                 </head>
                 <body>
                 </br></br></br></br></br></br>

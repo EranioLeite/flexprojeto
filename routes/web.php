@@ -22,7 +22,7 @@ Route::get('/listar_professor', 'ProfessorController@show');
 Route::get('/edita3_professor/{ID_PROFESSOR}', 'ProfessorController@edit');
 Route::post('/edita3_professor/{ID_PROFESSOR}', 'ProfessorController@update');
 Route::delete('/delete_professor/{ID_PROFESSOR}', 'ProfessorController@destroy');
-Route::get('/pdf/{ID_PROFESSOR}', 'PdfController@index');
+Route::get('/PdfProfessor/{ID_PROFESSOR}', 'PdfController@index');
 
 //Route::get('/', 'CursoController@index');
 Route::get('/create3_curso', 'CursoController@create');
@@ -31,7 +31,7 @@ Route::get('/listar3_curso', 'CursoController@show');
 Route::get('/edita2_curso/{ID_CURSO}', 'CursoController@edit');
 Route::post('/edita2_curso/{ID_CURSO}', 'CursoController@update');
 Route::delete('/delete_curso/{ID_CURSO}', 'CursoController@destroy');
-Route::get('/pdfc/{ID_CURSO}', 'PdfController@indexc');
+Route::get('/PdfCurso/{ID_CURSO}', 'PdfController@indexc');
 
 //Route::get('/', 'AlunoController@index');
 Route::get('/create2_aluno', 'AlunoController@create');
@@ -40,7 +40,7 @@ Route::get('/listar1_aluno', 'AlunoController@show');
 Route::get('/edita_aluno/{ID_ALUNO}', 'AlunoController@edit');
 Route::post('/edita_aluno/{ID_ALUNO}', 'AlunoController@update');
 Route::delete('/delete_aluno/{ID_ALUNO}', 'AlunoController@destroy');
-Route::get('/pdfa/{ID_ALUNO}', 'PdfController@indexa');
+Route::get('/PdfAluno/{ID_ALUNO}', 'PdfController@indexa');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -97,7 +97,7 @@ charset=iso-8859-1" />
     <div class="center-form">
 
 
-        <form method="post" action="{{url('/create_curso')}}">
+        <form method="post" action="{{url('/create3_curso')}}">
             {{csrf_field()}}
             <fieldset>
                 <legend>Preencha com os Dados do Curso: </legend>
