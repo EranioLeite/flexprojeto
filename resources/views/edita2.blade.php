@@ -6,9 +6,9 @@
  * Time: 11:45
  */?>
 <meta http-equiv="Content-Type" content="text/html;
-
+@extends('layouts.app')
 charset=iso-8859-1" />
-<title>EditCursos</title>
+<title>Edita Curso</title>
 <link href="estilo_form.css" rel="stylesheet"
 
       type="text/css" />
@@ -35,7 +35,7 @@ charset=iso-8859-1" />
         margin-right: auto;
     }
     .barra {
-        background-color: black;
+        background-color: brown;
         position: fixed;
         top: 0;
         left: 0;
@@ -43,7 +43,7 @@ charset=iso-8859-1" />
         height: 60px;
     }
 </style>
-<div class="barra"></br>
+<div class="barra">
         <table>
             <br>
             <tr>
@@ -66,8 +66,8 @@ charset=iso-8859-1" />
                 <td><form align = "right" href="{{ route('logout') }}"
                           onclick="event.preventDefault();
              document.getElementById('logout-form').submit();">
-                        <input type="hidden" name="_method" Value="sair">
-                        <input type="submit" value="sair" class="btn btn-danger"></form></td>
+                        <input type="hidden" name="_method" Value="Sair">
+                        <input type="submit" value="Sair" class="btn btn-danger"></form></td>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
@@ -91,7 +91,7 @@ charset=iso-8859-1" />
         <div class="center-form">
 
 
-            <form method="post" action="{{url('/edit_curso', $curso->ID_CURSO)}}">
+            <form method="post" action="{{url('/edita2_curso', $curso->ID_CURSO)}}">
                 {{csrf_field()}}
                 <fieldset>
                     <legend>Edite os dados abaixo:</legend>

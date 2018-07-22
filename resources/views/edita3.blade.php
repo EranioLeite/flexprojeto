@@ -47,6 +47,10 @@ charset=iso-8859-1" />
     <table>
         <br>
         <tr>
+            <td><form align = "left" action="{{url('/inicio') }}" method="get">
+                    {{ csrf_field()}}
+                    <input type="hidden" name="_method" Value="Home">
+                    <input type="submit" value="Home" class="btn btn-danger"></form></td><td></td><td></td><td></td><td></td>
             <td><form align = "left" action="{{url('/create2_aluno') }}" method="get">
                     {{ csrf_field()}}
                     <input type="hidden" name="_method" Value="Novo Aluno">
@@ -62,15 +66,14 @@ charset=iso-8859-1" />
             <td><form align = "right" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
              document.getElementById('logout-form').submit();">
-                    <input type="hidden" name="_method" Value="sair">
-                    <input type="submit" value="sair" class="btn btn-danger"></form></td>
+                    <input type="hidden" name="_method" Value="Sair">
+                    <input type="submit" value="Sair" class="btn btn-danger"></form></td>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
             </form>
-
-
         </tr>
+
     </table>
     </div>
 
@@ -114,7 +117,6 @@ charset=iso-8859-1" />
                             <input type="text" name= "DATA_C" id="DATA_C" placeholder="dd/mm/aaaa" size="40" value="<?=date('d/m/Y', strtotime($professor->DATA_C))?>">
                         </label>
                     </div>
-                    </br></br>
                     <div class="linha2">
                         <label><input name="Salvar" type="submit" id="Salvar" value="Salvar" />
                         </label>

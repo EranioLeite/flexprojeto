@@ -39,6 +39,7 @@
 </style>
 <div class="barra">
     <table>
+        <br>
         <tr>
             <td><form align = "left" action="{{url('/inicio') }}" method="get">
                     {{ csrf_field()}}
@@ -56,14 +57,17 @@
                     {{ csrf_field()}}
                     <input type="hidden" name="_method" Value="Novo Curso">
                     <input type="submit" value="Novo Curso" class="btn btn-danger"></form></td>
-            <a align = "right" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-             document.getElementById('logout-form').submit();">SAIR</a>
+            <td><form align = "right" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+             document.getElementById('logout-form').submit();">
+                    <input type="hidden" name="_method" Value="Sair">
+                    <input type="submit" value="Sair" class="btn btn-danger"></form></td>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
             </form>
         </tr>
+
 
     </table>
 </div>
